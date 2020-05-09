@@ -1,0 +1,27 @@
+#+TITLE: ANZ Cloud Native Bootcamp
+#+AUTHOR: James Blair
+#+EMAIL: james.blair@anz.com
+#+DATE: [2020-05-09 Sat]
+
+* Cloud Native Bootcamp
+
+Welcome to the first ANZ Cloud Native Bootcamp for 2020! 
+
+** TODO Setting the scene
+
+*** TODO Introductions
+
+
+*** TODO Rules of engagement
+
+
+*** TODO Questions before we begin
+
+
+** TODO Cloud Native Level 1
+
+The situation...
+
+*** Choice 1
+
+*** Choice 2
