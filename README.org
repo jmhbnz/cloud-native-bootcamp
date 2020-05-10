@@ -6,12 +6,13 @@
 Welcome to the first ANZ Cloud Native Bootcamp for 2020! 
 
 ** TODO Setting the scene
+SCHEDULED: <2020-05-13 Wed 14:05>
 
 *** TODO Introductions
 
 Firstly some quick introductions, my name is James Blair. I'm an Automation Lead at ANZ New Zealand based in Wellington. I've been in the tech industry for eight years, most of that working within government at Inland Revenue and joined ANZ a year ago.
 
-To introduce this session, I first want to go back to a memory of my childhood, reading [[./images/goosebumps.jpg]] by R.L Stine. We all remember these right?
+To introduce this session, I first want to go back to a memory of my childhood, reading Goosebumps choose your own adventure novels by R.L. Stine. We all remember these right? [[./images/goosebumps.jpg]]
 
 Ok so rest assured my goal for the session today isn't to scare you! However I am hoping we can go on something like an adventure, as we explore cloud native together, so what I've done is set this workshop up in a choose your own adventure style.
 
@@ -20,10 +21,20 @@ Ok so rest assured my goal for the session today isn't to scare you! However I a
 
 Before we begin, for this style of workshop to run smoothly, we need to cover some key messages:
 
- - *Everyone participates* - 
+ - *Everyone participates* - At each step of this adventure, we all need to collectively vote on the next step we take. To do that we'll be using the polls feature in zoom. Let's test that now to ensure it works for everyone. Additionally as we progress through our journey there will be opportunities to get hands on.
+
+ - *Asking questions* - The aim of this session is to be as interactive as possible, please don't hold questions to the end, I'm happy to answer questions as we go :) 
+
+ - *Resources* - All materials from this workshop will be publicly available on my gitlab and a link provided in chat at the end of our session.
+
+ - *Technology* - For demonstrations and hands on segements we will always be working as one group during this session. To navigate through our adventure and run code we'll be using a technique called [[https://en.wikipedia.org/wiki/Literate_programming][literate programming]] which for some quick history was formed by Donald E. Knuth in 1984. Essentially what this involves is using a tool such as ~emacs~ with ~org-mode~ which is what I am using on screen to weave our story into the flow of process and code we work through.
+
+*** TODO Demonstration of literate programming 
 
 
 *** TODO Questions before we begin
+
+Again before we start our journey, does anyone have any questions on how we actually work.
 
     
 ** TODO Level 1 - Landing An Internship
