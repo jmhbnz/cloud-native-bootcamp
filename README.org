@@ -3,22 +3,24 @@
 #+EMAIL: james.blair@anz.com
 #+DATE: [2020-05-09 Sat]
 
-* Cloud Native Bootcamp
-
 Welcome to the first ANZ Cloud Native Bootcamp for 2020! 
 
 ** TODO Setting the scene
 
 *** TODO Introductions
 
+Firstly some quick introductions, my name is James Blair. I'm an Automation Lead at ANZ New Zealand based in Wellington. I've been in the technology industry for seven years, most of that working within government at Inland Revenue and joined ANZ a year ago.
+
 
 *** TODO Rules of engagement
+
+Before we begin, 
 
 
 *** TODO Questions before we begin
 
 
-** TODO Cloud Native Level 1
+** TODO Level 1 - Landing An Internship
 
 The situation...
 
