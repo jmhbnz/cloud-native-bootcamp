@@ -12,7 +12,8 @@ SCHEDULED: <2020-05-13 Wed 14:05>
 
 Firstly some quick introductions, my name is James Blair. I'm an Automation Lead at ANZ New Zealand based in Wellington. I've been in the tech industry for eight years, most of that working within government at Inland Revenue and joined ANZ a year ago.
 
-To introduce this session, I first want to go back to a memory of my childhood, reading Goosebumps choose your own adventure novels by R.L. Stine. We all remember these right? [[./images/goosebumps.jpg]]
+To introduce this session, I first want to go back to a memory of my childhood, reading Goosebumps choose your own adventure novels by R.L. Stine. We all remember these right?
+[[./images/goosebumps.jpg]]
 
 Ok so rest assured my goal for the session today isn't to scare you! However I am hoping we can go on something like an adventure, as we explore cloud native together, so what I've done is set this workshop up in a choose your own adventure style.
 
@@ -27,10 +28,12 @@ Before we begin, for this style of workshop to run smoothly, we need to cover so
 
  - *Resources* - All materials from this workshop will be publicly available on my gitlab and a link provided in chat at the end of our session.
 
- - *Technology* - For demonstrations and hands on segements we will always be working as one group during this session. To navigate through our adventure and run code we'll be using a technique called [[https://en.wikipedia.org/wiki/Literate_programming][literate programming]] which for some quick history was formed by Donald E. Knuth in 1984. Essentially what this involves is using a tool such as ~emacs~ with ~org-mode~ which is what I am using on screen to weave our story into the flow of process and code we work through.
+ - *Technology* - For demonstrations and hands on segments we will always be working as one group. To navigate through our adventure and run code we'll be using a technique called [[https://en.wikipedia.org/wiki/Literate_programming][literate programming]] which for some quick history was formed by Donald E. Knuth in 1984. Essentially what this involves is using a development environment such as ~emacs~ with ~org-mode~ to weave our adventure and choices into the flow of processes and code we work through. Additionally we'll be using a tool called ~tmate~ which will allow us to all pair together and share the same development environment and terminals. I've taken to calling what we'll be doing today /*literate pair programming*/.
+
 
 *** TODO Demonstration of literate programming 
 
+I'm going to change my screen layout now in Zoom so you can see what I call "left eye" and "right eye" which are just terminals. The left eye runs our ~emacs~ development environment. The right eye is the terminal we will be running our code in.
 
 *** TODO Questions before we begin
 
