@@ -13,6 +13,7 @@ SCHEDULED: <2020-05-13 Wed 14:05>
 Firstly some quick introductions, my name is James Blair. I'm an Automation Lead at ANZ New Zealand based in Wellington. I've been in the tech industry for eight years, most of that working within government at Inland Revenue and joined ANZ a year ago.
 
 To introduce this session, I first want to go back to a memory of my childhood, reading Goosebumps choose your own adventure novels by R.L. Stine. We all remember these right?
+
 [[./images/goosebumps.jpg]]
 
 Ok so rest assured my goal for the session today isn't to scare you! However I am hoping we can go on something like an adventure, as we explore cloud native together, so what I've done is set this workshop up in a choose your own adventure style.
@@ -34,6 +35,7 @@ Before we begin, for this style of workshop to run smoothly, we need to cover so
 *** TODO Demonstration of literate programming 
 
 I'm going to change my screen layout now in Zoom so you can see what I call "left eye" and "right eye" which are just terminals. The left eye runs our ~emacs~ development environment. The right eye is the terminal we will be running our code in.
+
 
 *** TODO Questions before we begin
 
