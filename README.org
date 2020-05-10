@@ -9,17 +9,23 @@ Welcome to the first ANZ Cloud Native Bootcamp for 2020!
 
 *** TODO Introductions
 
-Firstly some quick introductions, my name is James Blair. I'm an Automation Lead at ANZ New Zealand based in Wellington. I've been in the technology industry for seven years, most of that working within government at Inland Revenue and joined ANZ a year ago.
+Firstly some quick introductions, my name is James Blair. I'm an Automation Lead at ANZ New Zealand based in Wellington. I've been in the tech industry for eight years, most of that working within government at Inland Revenue and joined ANZ a year ago.
+
+To introduce this session, I first want to go back to a memory of my childhood, reading [[https://prodimage.images-bn.com/pimages/9780545841849_p0_v1_s550x406.jpg][Goosebumps choose your own adventure novels]] by R.L Stine. We all remember these right?
+
+Ok so rest assured my goal for the session today isn't to scare you! However I am hoping we can go on something like an adventure, as we explore cloud native together, so what I've done is set this workshop up in a choose your own adventure style.
 
 
 *** TODO Rules of engagement
 
-Before we begin, 
+Before we begin, for this style of workshop to run smoothly, we need to cover some key messages:
+
+ - *Everyone participates* 
 
 
 *** TODO Questions before we begin
 
-
+    
 ** TODO Level 1 - Landing An Internship
 
 The situation...
