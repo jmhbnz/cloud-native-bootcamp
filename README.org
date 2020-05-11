@@ -63,6 +63,13 @@ You've been given freedom on how to approach the task do you...
 - [[Looking up what cloud native means][1 - Start by looking up what "cloud native" means]]
 - 2 - Start by reviewing the existing application
 
+<details>
+<summary>HINT</summary>
+
+**Nice work, you just revealed a hint!**
+</details>
+
+
 ** TODO Looking up what cloud native means
 
 You make a start by looking up what "cloud native" means, finding your way to the [[https://github.com/cncf/toc/blob/master/DEFINITION.md][definition]] approved by the [[https://www.cncf.io/][Cloud Native Computing Foundation]] in 2018:
