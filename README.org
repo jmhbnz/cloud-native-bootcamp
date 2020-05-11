@@ -88,14 +88,19 @@ You know you could really easily spin up a virtual machine in the cloud and manu
  
 [[./images/dilbert.jpg]]
 
+Memes aside, it's time to make a start on re-architecting our application to be cloud native. You know you could transform the application to be serverless, or run the application on a managed kubernetes cluster, do you:
+
+- [[Going serverless][1 - Decide to go with serverless]]
+- [[Going kubernetes][2 - Decide to go with kubernetes]]
 
 
+** TODO Going serverless
+SCHEDULED: <2020-05-13 Wed 14:35>
 
+Serverless architecture is taking off across the globe. You know that it's easy way deploy single functions to any of the major cloud providers.
 
-
-*** Dive right into the code
-
-** TODO Kubernetes?
-
-Testing
+One of the common misconceptions is that serverless is only for simple code functions, major cloud providers now support running stateless containers in a serverless fashion as well.
+ 
+[[./images/serverless.jpg]]
+ 
 
