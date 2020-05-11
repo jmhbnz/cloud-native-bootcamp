@@ -158,3 +158,7 @@ git clone https://gitlab.jamma.life/jmhbnz/cloud-native-bootcamp.git
 cd cloud-native-bootcamp/pdf-app
 #+end_src
 
+You can see one of your squad memebers had already started drafting a Dockerfile, however they had been pulled to another project and could not finish it.  Let's take a look at that [[./pdf-app/Dockerfile][Dockerfile]].
+
+Review the contents of the file and you'll see a few comments indicating what still needs to be done. Comments are denoted by a "#".
+

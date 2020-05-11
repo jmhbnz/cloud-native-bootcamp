@@ -7,15 +7,11 @@ from tempfile import mkstemp
 from werkzeug.wsgi import ClosingIterator
 from werkzeug.exceptions import HTTPException
 from pantomime import FileName, normalize_mimetype, mimetype_extension
-
-from convert.converter import Converter, ConversionFailure
-from convert.formats import load_mime_extensions
+from subprocess import call
 
 logging.basicConfig(level=logging.DEBUG)
 log = logging.getLogger('convert')
 lock = RLock()
-extensions = load_mime_extensions()
-converter = Converter()
 
 
 class ShutdownMiddleware:
@@ -40,17 +36,6 @@ app.is_dead = False
 app.wsgi_app = ShutdownMiddleware(app.wsgi_app)
 
 
-@app.route("/")
-@app.route("/healthz")
-def healthz():
-    if app.is_dead:
-        return ("DEAD", 500)
-    acquired = lock.acquire(timeout=5)
-    if not acquired:
-        return ("BUSY", 503)
-    lock.release()
-    return ("OK", 200)
-
 
 @app.route("/convert", methods=['POST'])
 def convert():
@@ -73,8 +58,10 @@ def convert():
             os.close(fd)
             log.info('PDF convert: %s [%s]', upload_file, mime_type)
             upload.save(upload_file)
-            converter.convert_file(upload_file, timeout)
-            return send_file(converter.OUT,
+            log.info('About to begin conversion.')
+            call('libreoffice --headless --convert-to pdf --outdir %s %s ' %
+            	('/tmp/', upload_file), shell=True)
+            return send_file('/tmp/output.pdf',
                              mimetype='application/pdf',
                              attachment_filename='output.pdf')
         return ('No file uploaded', 400)
@@ -90,6 +77,6 @@ def convert():
     finally:
         if upload_file is not None and os.path.exists(upload_file):
             os.unlink(upload_file)
-        if os.path.exists(converter.OUT):
-            os.unlink(converter.OUT)
+        if os.path.exists('/tmp/output.pdf'):
+            os.unlink('/tmp/output.pdf')
         lock.release()
