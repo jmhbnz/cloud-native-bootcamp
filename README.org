@@ -56,7 +56,7 @@ SCHEDULED: <2020-05-13 Wed 14:20>
 
 So here you are, a week into a new Summer of Tech internship at ANZ and you've been assigned to one of our cloud squads. You've been tasked with helping to migrate an internal application into a scalable cloud native service that can be run on a public cloud provider such as Google or AWS.
 
-The application in question is a basic two tier phone directory app made up of a web server and a database, currently running on a virtual machine on premise.
+The application in question is a basic pdf conversion app written in python which is currently running on a virtual machine on premises.
 
 To get underway you [[What cloud native means][start by looking up what "cloud native" means]]
 
@@ -84,7 +84,7 @@ SCHEDULED: <2020-05-13 Wed 14:30>
 
 Following some brief research you find it's not enough to just "lift and shift" a business application to simply operate in the cloud. Instead to take advantage of the scalability and elasticity of the cloud the business application needs to be re-architected to ensure that cloud is a core part of the design process.
 
-You know you could really easily spin up a virtual machine in the cloud and manually install a web server and database on it for our application, but you know that would not make the application cloud native. Along the way you find a great meme on that topic:
+You know you could really easily spin up a virtual machine in the cloud and manually install python in order to run our application, but you know that would not make the application cloud native. Along the way you find a great meme on that topic:
  
 [[./images/dilbert.jpg]]
 
@@ -114,7 +114,7 @@ SCHEDULED: <2020-05-13 Wed 14:35>
 
 Kubernetes (aka k8s) is the open source container orchestration system that is becoming ubiquitous across the planet, it was original created by Google and released in 2015 alongside the creation of the [[https://cncf.io][Cloud Native Computing Foundation]]. 
 
-You know it can automate the deployment, management and scaling of container based applications so you figure it would be a good option for moving our business application to a cloud native architecture.
+You know it can automate the deployment, management and scaling of container based applications so you figure it would be a good option for moving our business application to a cloud native ar chitecture.
  
 [[./images/kubernetes.jpg]]
  
@@ -142,10 +142,19 @@ You make a start on building a docker image for your application. For a quick re
 "Containers are a way to package software (e.g. web server, proxy, batch process worker) so that you can run your code and all of its dependencies in a resource isolated process. You might be thinking, "Wait, isn't that a virtual machine (VM)?" Containers virtualize the operating system, while VMs virtualize the hardware. Containers provide isolation, portability and repeatability, so your developers can easily spin up an environment and start building without the heavy lifting. More importantly, containers ensure your code runs in the same way anywhere, so if it works on your laptop, it will also work in production."
 #+end_quote
 
-The first step is to clone down the source code for the current buisiness application
+Our first step to building a docker container image is creating a [[https://docs.docker.com/engine/reference/builder/][Dockerfile]]. A quick look at the docs explains what a Dockerfile is.
 
-#+NAME: Clone the application
+#+NAME: Dockerfile description
+#+begin_quote
+"Docker can build images automatically by reading the instructions from a Dockerfile. A Dockerfile is a text document that contains all the commands a user could call on the command line to assemble an image. Using docker build users can create an automated build that executes several command-line instructions in succession."
+#+end_quote
+
+#+NAME: Clone the current application
 #+begin_src tmate
-git clone 
+# Clone the existing application
+git clone https://gitlab.jamma.life/jmhbnz/cloud-native-bootcamp.git
+
+# Navigate to the cloned folder
+cd cloud-native-bootcamp/pdf-app
 #+end_src
 
