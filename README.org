@@ -105,5 +105,47 @@ One of the common misconceptions is that serverless is only for simple code func
  
 Given that the implementations of serverless vary across different cloud providers our next choice is which cloud provider we want to deploy on, do you pick:
 
-- [[Going serverless on Google][1 - Google Cloud Platform]]
+- [[Going serverless on Google Cloud Platform][1 - Google Cloud Platform]]
 - [[Going serverless on Amazon Web Services][2 - Amazon Web Services]]
+
+
+** TODO Going kubernetes
+SCHEDULED: <2020-05-13 Wed 14:35>
+
+Kubernetes (aka k8s) is the open source container orchestration system that is becoming ubiquitous across the planet, it was original created by Google and released in 2015 alongside the creation of the [[https://cncf.io][Cloud Native Computing Foundation]]. 
+
+You know it can automate the deployment, management and scaling of container based applications so you figure it would be a good option for moving our business application to a cloud native architecture.
+ 
+[[./images/kubernetes.jpg]]
+ 
+Memes aside, it's time to make a start, you know that the first step to running an application on kubernetes is getting your application [[Building a docker container image][built into a docker container image]].
+
+
+** TODO Going serverless on Google Cloud Platform
+SCHEDULED: <2020-05-13 Wed 14:40>
+
+Google have...
+
+
+** TODO Going serverless on Amazon Web Services
+
+AWS have...
+
+
+** TODO Building a docker container image
+SCHEDULED: <2020-05-13 Wed 14:40>
+
+You make a start on building a docker image for your application. For a quick refresher you take a quick look at some context on what a container is.
+
+#+NAME: Container description
+#+begin_quote
+"Containers are a way to package software (e.g. web server, proxy, batch process worker) so that you can run your code and all of its dependencies in a resource isolated process. You might be thinking, "Wait, isn't that a virtual machine (VM)?" Containers virtualize the operating system, while VMs virtualize the hardware. Containers provide isolation, portability and repeatability, so your developers can easily spin up an environment and start building without the heavy lifting. More importantly, containers ensure your code runs in the same way anywhere, so if it works on your laptop, it will also work in production."
+#+end_quote
+
+The first step is to clone down the source code for the current buisiness application
+
+#+NAME: Clone the application
+#+begin_src tmate
+git clone 
+#+end_src
+
