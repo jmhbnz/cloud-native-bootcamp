@@ -18,6 +18,8 @@ To introduce this session, I first want to go back to a particular, nostalgic me
 
 Ok so rest assured my goal for the session today isn't to scare you! However I am hoping we can go on something like an adventure, as we explore cloud native together, so what I've done is set this workshop up in a choose your own adventure style.
 
+Depending on the choices you make within the adventure we'll focus primarily on either [[https://docker.com][docker]] or [[https://kubernetes.io][kubernetes]].
+
 
 *** TODO Rules of engagement
 
@@ -49,7 +51,7 @@ Let's take this opportunity to test connectivity with ~tmate~.  Can you all plea
 Again before we start our journey, does anyone have any questions or have any issues connecting with ~tmate~?
 
     
-** TODO Level 1 - Landing An Internship
+** TODO Starting our adventure
 SCHEDULED: <2020-05-13 Wed 14:20>
 
 So here you are, a week into a new Summer of Tech internship at ANZ and you've been assigned to one of our cloud squads. You've been tasked with helping to migrate an internal application into a scalable cloud native service that can be run on a public cloud provider such as Google or AWS.
@@ -58,7 +60,10 @@ The application in question is a basic two tier phone directory app made up of a
 
 You've been given freedom on how to approach the task do you...
 
-*** Start by looking up what "cloud native" means
+- [[Looking up what cloud native means][1 - Start by looking up what "cloud native" means]]
+- 2 - Start by reviewing the existing application
+
+** TODO Looking up what cloud native means
 
 You make a start by looking up what "cloud native" means, finding your way to the [[https://github.com/cncf/toc/blob/master/DEFINITION.md][definition]] approved by the [[https://www.cncf.io/][Cloud Native Computing Foundation]] in 2018:
 
@@ -70,5 +75,16 @@ These techniques enable loosely coupled systems that are resilient, manageable, 
 The Cloud Native Computing Foundation seeks to drive adoption of this paradigm by fostering and sustaining an ecosystem of open source, vendor-neutral projects. We democratize state-of-the-art patterns to make these innovations accessible for everyone."
 #+end_quote
 
+A wordy official definition, so from my perspective, when I'm talking about cloud native computing generally what we're talking about is code that runs in [[https://www.docker.com/][docker]] containers, is orchestrated by [[https://kubernetes.io/][kubernetes]] and runs on a public cloud provider like Google or Amazon Web Services.
+
+Now that you've had a look at what cloud native means, 
+
+
+
 
 *** Dive right into the code
+
+** TODO Kubernetes?
+
+Testing
+
