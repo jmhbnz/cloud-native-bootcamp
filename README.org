@@ -58,19 +58,11 @@ So here you are, a week into a new Summer of Tech internship at ANZ and you've b
 
 The application in question is a basic two tier phone directory app made up of a web server and a database, currently running on a virtual machine on premise.
 
-You've been given freedom on how to approach the task do you...
-
-- [[Looking up what cloud native means][1 - Start by looking up what "cloud native" means]]
-- 2 - Start by reviewing the existing application
-
-<details>
-<summary>HINT</summary>
-
-**Nice work, you just revealed a hint!**
-</details>
+To get underway you [[What cloud native means][start by looking up what "cloud native" means]]
 
 
-** TODO Looking up what cloud native means
+** TODO What cloud native means
+SCHEDULED: <2020-05-13 Wed 14:25>
 
 You make a start by looking up what "cloud native" means, finding your way to the [[https://github.com/cncf/toc/blob/master/DEFINITION.md][definition]] approved by the [[https://www.cncf.io/][Cloud Native Computing Foundation]] in 2018:
 
@@ -84,7 +76,19 @@ The Cloud Native Computing Foundation seeks to drive adoption of this paradigm b
 
 A wordy official definition, so from my perspective, when I'm talking about cloud native computing generally what we're talking about is code that runs in [[https://www.docker.com/][docker]] containers, is orchestrated by [[https://kubernetes.io/][kubernetes]] and runs on a public cloud provider like Google or Amazon Web Services.
 
-Now that you've had a look at what cloud native means, 
+Now that you've had a look at what cloud native means you [[Why cloud native is important][take a look at why it's important]].
+
+
+** TODO Why cloud native is important
+SCHEDULED: <2020-05-13 Wed 14:30>
+
+Following some brief research you find it's not enough to just "lift and shift" a business application to simply operate in the cloud. Instead to take advantage of the scalability and elasticity of the cloud the business application needs to be re-architected to ensure that cloud is a core part of the design process.
+
+You know you could really easily spin up a virtual machine in the cloud and manually install a web server and database on it for our application, but you know that would not make the application cloud native. Along the way you find a great meme on that topic:
+ 
+[[./images/dilbert.jpg]]
+
+
 
 
 
