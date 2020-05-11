@@ -12,7 +12,7 @@ SCHEDULED: <2020-05-13 Wed 14:05>
 
 Firstly some quick introductions, my name is James Blair. I'm an Automation Lead at ANZ New Zealand based in Wellington. I've been in the tech industry for eight years, most of that working within government at Inland Revenue and joined ANZ a year ago.
 
-To introduce this session, I first want to go back to a memory of my childhood, reading Goosebumps choose your own adventure novels by R.L. Stine. We all remember these right?
+To introduce this session, I first want to go back to a particular, nostalgic memory of my childhood which is reading Goosebumps choose your own adventure novels by R.L. Stine. We all remember these right?
 
 [[./images/goosebumps.jpg]]
 
@@ -31,21 +31,44 @@ Before we begin, for this style of workshop to run smoothly, we need to cover so
 
  - *Technology* - For demonstrations and hands on segments we will always be working as one group. To navigate through our adventure and run code we'll be using a technique called [[https://en.wikipedia.org/wiki/Literate_programming][literate programming]] which for some quick history was formed by Donald E. Knuth in 1984. Essentially what this involves is using a development environment such as ~emacs~ with ~org-mode~ to weave our adventure and choices into the flow of processes and code we work through. Additionally we'll be using a tool called ~tmate~ which will allow us to all pair together and share the same development environment and terminals. I've taken to calling what we'll be doing today /*literate pair programming*/.
 
-
+   
 *** TODO Demonstration of literate programming 
 
-I'm going to change my screen layout now in Zoom so you can see what I call "left eye" and "right eye" which are just terminals. The left eye runs our ~emacs~ development environment. The right eye is the terminal we will be running our code in.
+I'm going to change my screen layout now in Zoom so you can see what I call our pairing "left eye" and "right eye" which are just terminals. The left eye runs our ~emacs~ development environment. The right eye is the terminal we will be actually running our commands and code in.
+
+Let's take this opportunity to test connectivity with ~tmate~.  Can you all please:
+
+- Open two new browser windows and arrange them side by side
+- Navigate to the left eye [[https://tmate.io/t/x]]
+- Navigate to the right eye [[https://tmate.io/t/x]]
+- In the right eye type ~echo [your first name]~
 
 
 *** TODO Questions before we begin
 
-Again before we start our journey, does anyone have any questions on how we actually work.
+Again before we start our journey, does anyone have any questions or have any issues connecting with ~tmate~?
 
     
 ** TODO Level 1 - Landing An Internship
+SCHEDULED: <2020-05-13 Wed 14:20>
 
-The situation...
+So here you are, a week into a new Summer of Tech internship at ANZ and you've been assigned to one of our cloud squads. You've been tasked with helping to migrate an internal application into a scalable cloud native service that can be run on a public cloud provider such as Google or AWS.
 
-*** Choice 1
+The application in question is a basic two tier phone directory app made up of a web server and a database, currently running on a virtual machine on premise.
 
-*** Choice 2
+You've been given freedom on how to approach the task do you...
+
+*** Start by looking up what "cloud native" means
+
+You make a start by looking up what "cloud native" means, finding your way to the [[https://github.com/cncf/toc/blob/master/DEFINITION.md][definition]] approved by the [[https://www.cncf.io/][Cloud Native Computing Foundation]] in 2018:
+
+#+begin_quote
+"Cloud native technologies empower organizations to build and run scalable applications in modern, dynamic environments such as public, private, and hybrid clouds. Containers, service meshes, microservices, immutable infrastructure, and declarative APIs exemplify this approach.
+
+These techniques enable loosely coupled systems that are resilient, manageable, and observable. Combined with robust automation, they allow engineers to make high-impact changes frequently and predictably with minimal toil.
+
+The Cloud Native Computing Foundation seeks to drive adoption of this paradigm by fostering and sustaining an ecosystem of open source, vendor-neutral projects. We democratize state-of-the-art patterns to make these innovations accessible for everyone."
+#+end_quote
+
+
+*** Dive right into the code
