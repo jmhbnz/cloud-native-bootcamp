@@ -103,11 +103,8 @@ Serverless architecture is taking off across the globe. You know that it's easy 
 One of the common misconceptions is that serverless is only for simple code functions, major cloud providers now support running [[https://cloud.google.com/blog/products/application-development/5-principles-for-cloud-native-architecture-what-it-is-and-how-to-master-it][stateless]] containers in a serverless fashion as well.
  
 [[./images/serverless.jpg]]
- 
-Given that the implementations of serverless vary across different cloud providers our next choice is which cloud provider we want to deploy on, do you pick:
 
-- [[Going serverless on Google Cloud Platform][1 - Google Cloud Platform]]
-- [[Going serverless on Amazon Web Services][2 - Amazon Web Services]]
+Memes aside, it's time to make a start, you know that the first step to running an application like this serverless is getting your application [[Building a docker container image][built into a docker container image]].
 
 
 ** TODO Going kubernetes
@@ -115,22 +112,11 @@ SCHEDULED: <2020-05-13 Wed 14:35>
 
 Kubernetes (aka k8s) is the open source container orchestration system that is becoming ubiquitous across the planet, it was original created by Google and released in 2015 alongside the creation of the [[https://cncf.io][Cloud Native Computing Foundation]]. 
 
-You know it can automate the deployment, management and scaling of container based applications so you figure it would be a good option for moving our business application to a cloud native ar chitecture.
+You know it can automate the deployment, management and scaling of container based applications so you figure it would be a good option for moving our business application to a cloud native architecture.
  
 [[./images/kubernetes.jpg]]
  
 Memes aside, it's time to make a start, you know that the first step to running an application on kubernetes is getting your application [[Building a docker container image][built into a docker container image]].
-
-
-** TODO Going serverless on Google Cloud Platform
-SCHEDULED: <2020-05-13 Wed 14:40>
-
-Google have...
-
-
-** TODO Going serverless on Amazon Web Services
-
-AWS have...
 
 
 ** TODO Building a docker container image
@@ -164,7 +150,7 @@ cd cloud-native-bootcamp/pdf-app
 ls -l 
 #+end_src
 
-You can see one of your squad memebers had already started drafting a Dockerfile, however they had been pulled to another project and could not finish it.  Let's take a look at that [[./pdf-app/Dockerfile][Dockerfile]].
+You can see one of your squad members had already started drafting a Dockerfile, however they had been pulled to another project and could not finish it.  Let's take a look at that [[./pdf-app/Dockerfile][Dockerfile]].
 
 Review the contents of the file and you'll see a few comments indicating what still needs to be done. Comments are denoted by a "#".
 
@@ -246,6 +232,46 @@ docker push gcr.io/cloud-native-bootcamp-277000/pdf-app
 
 You can see output confirming all layers of the image have been pushed so know that the command was successfull.  Checking the [[https://console.cloud.google.com/gcr/images/cloud-native-bootcamp-277000/GLOBAL/pdf-app?gcrImageListsize=30][Google Cloud Console]] you can also see the image is now pushed.
 
+Now that you have a container image pushed to the cloud ready to be deployed, you have second thoughts on your earlier decision, are you certain you want to:
+
+ - [[Deploy a kubernetes cluster][1 - Deploy the container on kubernetes]]
+ - [[Deploy a serverless application][2 - Deploy the container serverless]]
+
+
 *** TODO Amazon Elastic Container Registry
 
+Looking at the [[https://docs.aws.amazon.com/AmazonECR/latest/userguide/getting-started-cli.html][documentation for AWS Elastic Container Registry]] you see the step by step commands for using the registry via the command line. This involves setting up authentication, creating a repostitory and then pushing an image.
+
+#+NAME: Tag image for AWS Elastic Container Registry and push
+#+begin_src tmate
+# Configure authentication for docker
+aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 088596787314.dkr.ecr.us-east-1.amazonaws.com 
+
+# Create a repository
+aws ecr create-repository \
+    --repository-name pdf-app \
+    --image-scanning-configuration scanOnPush=false \
+    --region us-east-1
+
+# Tag our local image
+docker tag pdf-app 088596787314.dkr.ecr.us-east-1.amazonaws.com/pdf-app
+ 
+# Push the image
+docker push 088596787314.dkr.ecr.us-east-1.amazonaws.com/pdf-app
+#+end_src
+
+You can see the output confirming all layers of the image have been pushed so know that the command was successful. Checking the [[https://console.aws.amazon.com/ecr/repositories/pdf-app/?region=us-east-1][AWS Console]] you can also see that we have an image pushed.
+
+
+** TODO Deploy a kubernetes cluster
+SCHEDULED: <2020-05-13 Wed 15:15>
+
+After pushing your newly created container image to the cloud, you're ready to spin up a k8s cluster to deploy the image into, you know you have the choice of running the cluster in either Amazon Web Services or Google Cloud Platform, after evaluating the options you decide on:
+
+ - [[1 - Google Kubernetes Engine]]
+ - [[2 - Amazon Elastic Kubernetes Service]]
+ - [[3 - Both!?]]
+
+** TODO Deploy a serverless application
+SCHEDULED: <2020-05-13 Wed 15:15>
 
