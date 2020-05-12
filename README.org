@@ -168,7 +168,7 @@ You can see one of your squad memebers had already started drafting a Dockerfile
 
 Review the contents of the file and you'll see a few comments indicating what still needs to be done. Comments are denoted by a "#".
 
-Once you finish the Dockerfile you decide it's time to give it a test, that's there the [[https://docs.docker.com/engine/reference/commandline/build/][docker build]] command comes in so you give it a try. You note the trailing period in the build command which tells docker to look in the current directory for the Dockerfile.
+Once you finish the Dockerfile you decide it's time to give it a test, that's where the [[https://docs.docker.com/engine/reference/commandline/build/][docker build]] command comes in so you give it a try. You note the trailing period in the build command which tells docker to look in the current directory for the Dockerfile.
 
 #+NAME: Build the docker image
 #+begin_src tmate
@@ -218,3 +218,34 @@ docker rm pdf-app
 
 
 ** TODO Pushing a docker container image
+SCHEDULED: <2020-05-13 Wed 15:00>
+
+After building the container image you decide it's time to push it to the cloud, you have the choice of pushing it to the container registries in Amazon Web Services or Google Cloud Platform, you decide on:
+
+ - [[Google Container Registry][1 - Google Container Registry]]
+ - [[Amazon Elastic Container Registry][2 - Amazon Elastic Container Registry]]
+ - [[3 - Both!?]]
+
+*** TODO Google Container Registry
+
+Doing some reading online you come across the [[https://cloud.google.com/container-registry/docs/pushing-and-pulling][documentation for pushing images to Google Container Registry]]. This outlines that after configuring our local docker to authenticate with Google Container Registry we can then tag a local image with a ~[HOSTNAME]/[PROJECT-ID]/[IMAGE]~.
+
+You can see that the standard hostname for Google Container Registry is ~gcr.io~, you have a project ID in Google Cloud already of ~cloud-native-bootcamp-277000~ and our image is called ~pdf-app~, so you tag the image with the following command.
+
+#+NAME: Tag image for Google Container Registry and push
+#+begin_src tmate
+# Configure authentication for docker 
+echo "y" | gcloud auth configure-docker
+
+# Tag our local image
+docker tag pdf-app gcr.io/cloud-native-bootcamp-277000/pdf-app
+
+# Push the image
+docker push gcr.io/cloud-native-bootcamp-277000/pdf-app
+#+end_src
+
+You can see output confirming all layers of the image have been pushed so know that the command was successfull.  Checking the [[https://console.cloud.google.com/gcr/images/cloud-native-bootcamp-277000/GLOBAL/pdf-app?gcrImageListsize=30][Google Cloud Console]] you can also see the image is now pushed.
+
+*** TODO Amazon Elastic Container Registry
+
+
