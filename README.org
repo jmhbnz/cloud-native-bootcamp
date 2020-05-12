@@ -185,5 +185,36 @@ Reviewing the ouput of the build you can see the a ~successfully built~ and ~suc
 ** TODO Testing a docker container image locally
 SCHEDULED: <2020-05-13 Wed 15:00>
 
+Before you push the newly created docker container image to a cloud registry you decide to run it locally to test that the application runs successfully. You take a look at the docs for the [[https://docs.docker.com/engine/reference/run/][docker run]] command to run the image.  
+
+You find that you need to specific the ~-p~ parameter to provide a port that the python web server running in the container will be accessible on.
+
+#+NAME: Run the container image
+#+begin_src tmate
+docker run -d --name "pdf-app" -p 3000:3000 pdf-app
+#+end_src
+
+You can tell that the application is running successfully by looking at the logs and seeing that no errors are present and also using the ~docker ps~ command to verify that the container is running.
+
+#+NAME: Review container logs
+#+begin_src tmate
+# Check the container logs
+docker logs pdf-app
+
+# Check the container state
+docker ps -f name=pdf-app
+#+end_src
+
+After finishing testing you clean up by stopping and removing the locally running container.
+
+#+NAME: Stop the running container
+#+begin_src tmate
+# Stop the running container
+docker stop pdf-app
+
+# Remove the container
+docker rm pdf-app
+#+end_src
+
 
 ** TODO Pushing a docker container image

@@ -19,18 +19,11 @@ COPY requirements.txt /tmp/
 # Install python package requirements with pip
 RUN pip3 install --no-cache-dir -r /tmp/requirements.txt
 
-# Make a folder for our source code
-RUN mkdir -p /convert
-
 # Copy application code and setup 
-#COPY setup.py /convert
-COPY convert /convert/convert
+COPY convert /tmp/convert
 
-# Switch workdir to our application folder
-WORKDIR /convert
-
-# Install our application
-#RUN pip3 install -e .
+# Suggest a port to be exposed
+EXPOSE 3000
 
 # Run the python web server
 CMD ["gunicorn", \
