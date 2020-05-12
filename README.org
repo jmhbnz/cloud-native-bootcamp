@@ -150,6 +150,8 @@ Our first step to building a docker container image is creating a [[https://docs
 "Docker can build images automatically by reading the instructions from a Dockerfile. A Dockerfile is a text document that contains all the commands a user could call on the command line to assemble an image. Using docker build users can create an automated build that executes several command-line instructions in succession."
 #+end_quote
 
+To make a start on creating a dockerfile you clone down the existing application code to take a look.
+
 #+NAME: Clone the current application
 #+begin_src tmate
 # Clone the existing application
@@ -157,18 +159,31 @@ git clone https://gitlab.jamma.life/jmhbnz/cloud-native-bootcamp.git
 
 # Navigate to the cloned folder
 cd cloud-native-bootcamp/pdf-app
+
+# Look at the contents of the folder
+ls -l 
 #+end_src
 
 You can see one of your squad memebers had already started drafting a Dockerfile, however they had been pulled to another project and could not finish it.  Let's take a look at that [[./pdf-app/Dockerfile][Dockerfile]].
 
 Review the contents of the file and you'll see a few comments indicating what still needs to be done. Comments are denoted by a "#".
 
-Once you finish the Dockerfile you decide it's time to give it a test, that's there the [[https://docs.docker.com/engine/reference/commandline/build/][docker build]] command comes in so you give it a try.
-
-You note the trailing period in the build command which tells docker to look in the current directory for the Dockerfile.
+Once you finish the Dockerfile you decide it's time to give it a test, that's there the [[https://docs.docker.com/engine/reference/commandline/build/][docker build]] command comes in so you give it a try. You note the trailing period in the build command which tells docker to look in the current directory for the Dockerfile.
 
 #+NAME: Build the docker image
 #+begin_src tmate
 # Build the docker image
 docker build -t pdf-app .
 #+end_src
+
+Reviewing the ouput of the build you can see the a ~successfully built~ and ~successfully tagged~ message so you know the image built successfully, from here do you
+
+- [[Testing a docker container image locally][1 - Try and test the application locally]]
+- [[Pushing a docker container image][2 - Skip testing and push the image to the cloud]]
+
+
+** TODO Testing a docker container image locally
+SCHEDULED: <2020-05-13 Wed 15:00>
+
+
+** TODO Pushing a docker container image
