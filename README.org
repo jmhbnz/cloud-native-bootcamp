@@ -7,19 +7,19 @@
 Welcome to the first ANZ Cloud Native Bootcamp for 2020! 
 
 ** TODO Setting the scene
-SCHEDULED: <2020-05-13 Wed 14:05>
+SCHEDULED: <2020-05-18 Mon 10:05>
 
 *** TODO Introductions
 
-Firstly some quick introductions, my name is James Blair. I'm an Automation Lead at ANZ New Zealand based in Wellington. I've been in the tech industry for eight years, most of that working within government at Inland Revenue and joined ANZ a year ago.
+Firstly some quick introductions, my name is James Blair. I'm an Automation Lead at ANZ New Zealand based in Wellington. I've been in the tech industry for eight years, most of that working within government at Inland Revenue and joined ANZ just over a year ago.
 
 To introduce this session, I first want to go back to a particular, nostalgic memory of my childhood which is reading Goosebumps choose your own adventure novels by R.L. Stine. We all remember these right?
 
 [[./images/goosebumps.jpg]]
 
-Ok so rest assured my goal for the session today isn't to scare you! However I am hoping we can go on something like an adventure, as we explore cloud native together, so what I've done is set this workshop up in a choose your own adventure style.
+Ok so rest assured my goal for the session today isn't to scare you! However I am hoping we can go on something like an adventure, as we explore cloud native together, so what I've done is set this workshop up in a choose your own adventure style, with a series of decisions along the way.
 
-Depending on the choices you make within the adventure we'll focus primarily on either [[https://docker.com][docker]] or [[https://kubernetes.io][kubernetes]].
+These decisions will relate to how we approach developing an application, and on which cloud provider(s) we deploy that application. 
 
 
 *** TODO Rules of engagement
@@ -32,7 +32,7 @@ Before we begin, for this style of workshop to run smoothly, we need to cover so
 
  - *Resources* - All materials from this workshop will be publicly available on my gitlab and a link provided in chat at the end of our session.
 
- - *Technology* - For demonstrations and hands on segments we will always be working as one group. To navigate through our adventure and run code we'll be using a technique called [[https://en.wikipedia.org/wiki/Literate_programming][literate programming]] which for some quick history was formed by Donald E. Knuth in 1984. Essentially what this involves is using a development environment such as ~emacs~ with ~org-mode~ to weave our adventure and choices into the flow of processes and code we work through. Additionally we'll be using a tool called ~tmate~ which will allow us to all pair together and share the same development environment and terminals. I've taken to calling what we'll be doing today /*literate pair programming*/.
+ - *Technology* - For demonstrations and hands on segments we will always be working as one group. To navigate through our adventure and run code we'll be using a technique called [[https://en.wikipedia.org/wiki/Literate_programming][literate programming]] which for some quick history was formed by Donald Knuth in 1984. Essentially what this involves is using a development environment such as ~emacs~ with ~org-mode~ to weave our adventure and choices into the flow of processes and code we work through. Additionally we'll be using a tool called ~tmate~ which will allow us to all pair together and share the same development environment and terminals. I've taken to calling what we'll be doing today /*literate pair programming*/.
 
    
 *** TODO Demonstration of literate programming 
@@ -53,7 +53,7 @@ Again before we start our journey, does anyone have any questions or have any is
 
     
 ** TODO Starting our adventure
-SCHEDULED: <2020-05-13 Wed 14:20>
+SCHEDULED: <2020-05-18 Mon 10:20>
 
 So here you are, a week into a new Summer of Tech internship at ANZ and you've been assigned to one of our cloud squads. You've been tasked with helping to migrate an internal application into a scalable cloud native service that can be run on a public cloud provider such as Google or AWS.
 
@@ -63,7 +63,7 @@ To get underway you [[What cloud native means][start by looking up what "cloud n
 
 
 ** TODO What cloud native means
-SCHEDULED: <2020-05-13 Wed 14:25>
+SCHEDULED: <2020-05-18 Mon 10:25>
 
 You make a start by looking up what "cloud native" means, finding your way to the [[https://github.com/cncf/toc/blob/master/DEFINITION.md][definition]] approved by the [[https://www.cncf.io/][Cloud Native Computing Foundation]] in 2018:
 
@@ -80,8 +80,8 @@ A wordy official definition, so from my perspective, when I'm talking about clou
 Now that you've had a look at what cloud native means you [[Why cloud native is important][take a look at why it's important]].
 
 
-** TODO Why cloud native is important
-SCHEDULED: <2020-05-13 Wed 14:30>
+** TODO Why cloud native is important :decision:
+SCHEDULED: <2020-05-18 Mon 10:30>
 
 Following some brief research you find it's not enough to just "lift and shift" a business application to simply operate in the cloud. Instead to take advantage of the scalability and elasticity of the cloud the business application needs to be re-architected to ensure that cloud is a core part of the design process.
 
@@ -89,14 +89,14 @@ You know you could really easily spin up a virtual machine in the cloud and manu
  
 [[./images/dilbert.jpg]]
 
-Memes aside, it's time to make a start on re-architecting our application to be cloud native. You know you could transform the application to be serverless, or run the application on a managed kubernetes cluster, do you:
+Memes aside, it's time to make a start on re-architecting our application to be cloud native. You know you could transform the application to use serverless infrastructure, or you could run the application in a container on a managed kubernetes cluster, do you:
 
 - [[Going serverless][1 - Decide to go with serverless]]
 - [[Going kubernetes][2 - Decide to go with kubernetes]]
 
 
 ** TODO Going serverless
-SCHEDULED: <2020-05-13 Wed 14:35>
+SCHEDULED: <2020-05-18 Mon 10:35>
 
 Serverless architecture is taking off across the globe. You know that it's easy way deploy single functions to any of the major cloud providers.
 
@@ -108,19 +108,21 @@ Memes aside, it's time to make a start, you know that the first step to running 
 
 
 ** TODO Going kubernetes
-SCHEDULED: <2020-05-13 Wed 14:35>
+SCHEDULED: <2020-05-18 Mon 10:35>
 
 Kubernetes (aka k8s) is the open source container orchestration system that is becoming ubiquitous across the planet, it was original created by Google and released in 2015 alongside the creation of the [[https://cncf.io][Cloud Native Computing Foundation]]. 
 
-You know it can automate the deployment, management and scaling of container based applications so you figure it would be a good option for moving our business application to a cloud native architecture.
- 
+You know it can automate the deployment, management and scaling of container based applications so you figure it would be a good option for moving our business application to a cloud native architecture. 
+
+Taking a look at an overview [[https://www.cloudtp.com/doppler/managed-container-services-vs-bring-your-own-container-stack/][article]] you know all the major cloud providers offer a managed kubernetes service and there are also on premise kubernetes solutions available so containers can now be easily run in the cloud or on premises.
+
 [[./images/kubernetes.jpg]]
  
 Memes aside, it's time to make a start, you know that the first step to running an application on kubernetes is getting your application [[Building a docker container image][built into a docker container image]].
 
 
-** TODO Building a docker container image
-SCHEDULED: <2020-05-13 Wed 14:40>
+** TODO Building a docker container image :decision:
+SCHEDULED: <2020-05-18 Mon 10:40>
 
 You make a start on building a docker image for your application. For a quick refresher you take a quick look at some context on what a container is.
 
@@ -141,10 +143,10 @@ To make a start on creating a dockerfile you clone down the existing application
 #+NAME: Clone the current application
 #+begin_src tmate
 # Clone the existing application
-git clone https://gitlab.jamma.life/jmhbnz/cloud-native-bootcamp.git
+git clone https://gitlab.jamma.life/jmhbnz/cloud-native-bootcamp.git /tmp/cloud-native-bootcamp
 
 # Navigate to the cloned folder
-cd cloud-native-bootcamp/pdf-app
+cd /tmp/cloud-native-bootcamp/pdf-app
 
 # Look at the contents of the folder
 ls -l 
@@ -191,6 +193,25 @@ docker logs pdf-app
 docker ps -f name=pdf-app
 #+end_src
 
+Another test you can run is ensuring that the pdf conversion service still works.  You know the service works by using the [[https://www.tutorialspoint.com/http/http_methods.htm][HTTP POST method]] to send a non pdf file to the application.  The application should respond to the POST request with a converted PDF file.
+
+You know that the application is running locally on port ~3000~ so let's try POSTing a word document to it using the ~curl~ command.
+
+#+NAME: Convert a file to pdf
+#+begin_src tmate
+# Navigate to the example files folder
+cd ../files
+
+# Show what is in the files directory before the test
+ls -l
+ 
+# Post a word file to the convert endpoint
+curl -o Memo.pdf -F format=pdf -F 'file=@Important Memo.docx' http://localhost:3000/convert 
+
+# Show what is in the files directory after the test
+ls -l
+#+end_src
+
 After finishing testing you clean up by stopping and removing the locally running container.
 
 #+NAME: Stop the running container
@@ -202,9 +223,11 @@ docker stop pdf-app
 docker rm pdf-app
 #+end_src
 
+With some local testing complete you feel confident to [[Pushing a docker container image][push your newly built container image to the cloud]].
 
-** TODO Pushing a docker container image
-SCHEDULED: <2020-05-13 Wed 15:00>
+
+** TODO Pushing a docker container image :decision:
+SCHEDULED: <2020-05-13 Wed 15:15>
 
 After building the container image you decide it's time to push it to the cloud, you have the choice of pushing it to the container registries in Amazon Web Services or Google Cloud Platform, you decide on:
 
@@ -212,7 +235,7 @@ After building the container image you decide it's time to push it to the cloud,
  - [[Amazon Elastic Container Registry][2 - Amazon Elastic Container Registry]]
  - [[3 - Both!?]]
 
-*** TODO Google Container Registry
+*** TODO Google Container Registry :decision:
 
 Doing some reading online you come across the [[https://cloud.google.com/container-registry/docs/pushing-and-pulling][documentation for pushing images to Google Container Registry]]. This outlines that after configuring our local docker to authenticate with Google Container Registry we can then tag a local image with a ~[HOSTNAME]/[PROJECT-ID]/[IMAGE]~.
 
@@ -238,7 +261,7 @@ Now that you have a container image pushed to the cloud ready to be deployed, yo
  - [[Deploy a serverless application][2 - Deploy the container serverless]]
 
 
-*** TODO Amazon Elastic Container Registry
+*** TODO Amazon Elastic Container Registry :decision:
 
 Looking at the [[https://docs.aws.amazon.com/AmazonECR/latest/userguide/getting-started-cli.html][documentation for AWS Elastic Container Registry]] you see the step by step commands for using the registry via the command line. This involves setting up authentication, creating a repostitory and then pushing an image.
 
@@ -262,16 +285,32 @@ docker push 088596787314.dkr.ecr.us-east-1.amazonaws.com/pdf-app
 
 You can see the output confirming all layers of the image have been pushed so know that the command was successful. Checking the [[https://console.aws.amazon.com/ecr/repositories/pdf-app/?region=us-east-1][AWS Console]] you can also see that we have an image pushed.
 
+Now that you have a container image pushed to the cloud ready to be deployed, you have second thoughts on your earlier decision, are you certain you want to:
 
-** TODO Deploy a kubernetes cluster
+ - [[Deploy a kubernetes cluster][1 - Deploy the container on kubernetes]]
+ - [[Deploy a serverless application][2 - Deploy the container serverless]]
+
+
+** TODO Deploy a kubernetes cluster :decision:
 SCHEDULED: <2020-05-13 Wed 15:15>
 
 After pushing your newly created container image to the cloud, you're ready to spin up a k8s cluster to deploy the image into, you know you have the choice of running the cluster in either Amazon Web Services or Google Cloud Platform, after evaluating the options you decide on:
 
- - [[1 - Google Kubernetes Engine]]
- - [[2 - Amazon Elastic Kubernetes Service]]
+ - [[Google Kubernetes Engine][1 - Google Kubernetes Engine]]
+ - [[Amazon Elastic Kubernetes Service][2 - Amazon Elastic Kubernetes Service]]
  - [[3 - Both!?]]
+
+*** TODO Google Kubernetes Engine :decision:
+
+Taking a look at the [[https://cloud.google.com/kubernetes-engine/][overview of Google Kubernetes Engine]] you can see it is a fully managed kubernetes service, with automated upgrades and high availability, perfect for your important business application.
+
+This is the first kubernetes cluster you've created so you're faced with a dilemma, do you create it manually using the [[https://console.cloud.google.com/][Google Cloud Console]] web interface, or in an automated way with the [[https://cloud.google.com/sdk/][Google Cloud SDK Command Line]]? 
+
+
+
 
 ** TODO Deploy a serverless application
 SCHEDULED: <2020-05-13 Wed 15:15>
 
+
+Coming soon! For now you return to [[Deploy a kubernetes cluster]].
