@@ -21,6 +21,8 @@ Ok so rest assured my goal for the session today isn't to scare you! However I a
 
 These decisions will relate to how we approach developing an application, and on which cloud provider(s) we deploy that application. 
 
+As a final note this is intended to be a brief introductory session run over two hours so is intentionally light on detail or nuance in a lot of areas. If you are already a cloud native expert then this probably won't be the session for you.
+
 
 *** TODO Rules of engagement
 
@@ -172,7 +174,7 @@ Reviewing the ouput of the build you can see the a ~successfully built~ and ~suc
 
 
 ** TODO Testing a docker container image locally
-SCHEDULED: <2020-05-13 Wed 15:00>
+SCHEDULED: <2020-05-18 Mon 11:00>
 
 Before you push the newly created docker container image to a cloud registry you decide to run it locally to test that the application runs successfully. You take a look at the docs for the [[https://docs.docker.com/engine/reference/run/][docker run]] command to run the image.  
 
@@ -228,7 +230,7 @@ With some local testing complete you feel confident to [[Pushing a docker contai
 
 
 ** TODO Pushing a docker container image :decision:
-SCHEDULED: <2020-05-13 Wed 15:15>
+SCHEDULED: <2020-05-18 Mon 11:15>
 
 After building the container image you decide it's time to push it to the cloud, you have the choice of pushing it to the container registries in Amazon Web Services or Google Cloud Platform, you decide on:
 
@@ -293,7 +295,7 @@ Now that you have a container image pushed to the cloud ready to be deployed, yo
 
 
 ** TODO Deploy a kubernetes cluster :decision:
-SCHEDULED: <2020-05-13 Wed 15:15>
+SCHEDULED: <2020-05-18 Mon 11:15>
 
 After pushing your newly created container image to the cloud, you're ready to spin up a k8s cluster to deploy the image into, you know you have the choice of running the cluster in either Amazon Web Services or Google Cloud Platform, after evaluating the options you decide on:
 
@@ -307,11 +309,34 @@ Taking a look at the [[https://cloud.google.com/kubernetes-engine/][overview of 
 
 This is the first kubernetes cluster you've created so you're faced with a dilemma, do you create it manually using the [[https://console.cloud.google.com/][Google Cloud Console]] web interface, or in an automated way with the [[https://cloud.google.com/sdk/][Google Cloud SDK Command Line]]? 
 
+ - [[Google Cloud Console][1 - Create the cluster manually with Google Cloud Console]]
+ - [[Google Cloud SDK Command Line][2 - Google Cloud SDK Command Line]]
 
+**** TODO Google Cloud Console
+
+Given this is the first time you've deployed a kubernetes cluster on Google Cloud Platform you decide to step through it manually in the [[https://console.cloud.google.com][web console]]. 
+
+1. After loading up the console you navigate to *Kubernetes Engine > Clusters* in the left hand menu underneath the *Compute* header.
+
+2. Once the clusters page has loaded you click *Create Cluster* and update the cluster name to ~company-cluster~ and specify he region as ~australia-southeast1-a~.  Keeping all other settings at their defaults you click *Create* at the bottom of the page.
+
+3. After waiting several minutes you can see the cluster has been created successfully. Clicking into the cluster you click on the *Nodes* tab to see that all three cluster nodes area ~Ready~ status.
+
+**** TODO Google Cloud SDK Command Line
 
 
 ** TODO Deploy a serverless application
-SCHEDULED: <2020-05-13 Wed 15:15>
+SCHEDULED: <2020-05-18 Mon 11:15>
 
 
 Coming soon! For now you return to [[Deploy a kubernetes cluster]].
+
+
+** TODO Teardown cloud resources
+SCHEDULED: <2020-05-18 Mon 11:55>
+
+#+NAME: Teardown kubernetes clusters
+#+begin_src tmate
+# Teardown google kubernetes engine cluster
+gcloud container clusters delete company-cluster --zone=australia-southeast1-a --quiet
+#+end_src
