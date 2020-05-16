@@ -129,6 +129,7 @@ You make a start on building a docker image for your application. For a quick re
 #+NAME: Container description
 #+begin_quote
 "Containers are a way to package software (e.g. web server, proxy, batch process worker) so that you can run your code and all of its dependencies in a resource isolated process. You might be thinking, "Wait, isn't that a virtual machine (VM)?" Containers virtualize the operating system, while VMs virtualize the hardware. Containers provide isolation, portability and repeatability, so your developers can easily spin up an environment and start building without the heavy lifting. More importantly, containers ensure your code runs in the same way anywhere, so if it works on your laptop, it will also work in production."
+- Source [[https://github.com/aws-samples/amazon-ecs-mythicalmysfits-workshop/tree/master/workshop-1][aws github]].
 #+end_quote
 
 Our first step to building a docker container image is creating a [[https://docs.docker.com/engine/reference/builder/][Dockerfile]]. A quick look at the docs explains what a Dockerfile is.
