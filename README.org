@@ -427,5 +427,5 @@ Let's tear down the cloud resources we deployed.
 gcloud container clusters delete company-cluster --zone=australia-southeast1-a --quiet
 
 # Teardown amazon elastic kubernetes service cluster
-aws eks --region us-east-1 delete-cluster --name company-cluster
+#aws eks --region us-east-1 delete-cluster --name company-cluster
 #+end_src
