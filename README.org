@@ -297,7 +297,9 @@ Now that you have a container image pushed to the cloud ready to be deployed, yo
 ** TODO Deploy a kubernetes cluster :decision:
 SCHEDULED: <2020-05-18 Mon 11:15>
 
-After pushing your newly created container image to the cloud, you're ready to spin up a k8s cluster to deploy the image into, you know you have the choice of running the cluster in either Amazon Web Services or Google Cloud Platform, after evaluating the options you decide on:
+After pushing your newly created container image to the cloud, you're ready to spin up a k8s cluster to deploy the image into. Before you get to far into that you decide it's time to refresh on [[https://en.wikipedia.org/wiki/Kubernetes][what kubernetes is]] before you proceed.
+
+Now that you know what kubernetes is you know you have the choice of running the cluster in either Amazon Web Services or Google Cloud Platform, after evaluating the options you decide on:
 
  - [[Google Kubernetes Engine][1 - Google Kubernetes Engine]]
  - [[Amazon Elastic Kubernetes Service][2 - Amazon Elastic Kubernetes Service]]
@@ -322,7 +324,40 @@ Given this is the first time you've deployed a kubernetes cluster on Google Clou
 
 3. After waiting several minutes you can see the cluster has been created successfully. Clicking into the cluster you click on the *Nodes* tab to see that all three cluster nodes area ~Ready~ status.
 
+
 **** TODO Google Cloud SDK Command Line
+
+You're keen to ensure anything you do today will be easy to recreate in future and be easily automated so you decide to create the cluster with the command line.
+
+Taking a look at the [[https://cloud.google.com/kubernetes-engine/docs/how-to/creating-a-cluster#gcloud][cluster creation docs]] you can see an example gcloud command so you decide to give that a go...
+
+#+NAME: Create and check gke cluster
+#+begin_src tmate
+# Create the cluster
+gcloud container clusters create company-cluster --zone australia-southeast1-a
+
+# Obtain cluster credentials
+gcloud container clusters get-credentials company-cluster --zone australia-southeast1-a
+
+# List nodes in cluster
+kubectl get nodes
+
+# List pods in cluster
+kubectl get pods
+#+end_src
+
+
+*** TODO Amazon Elastic Kubernetes Service :decision:
+
+Taking a look at the [[https://aws.amazon.com/eks/][overview of Amazon Elastic Kubernetes Service]] you can see it is a fully managed kubernetes service with high availability and strong integration with a host of other AWS services.
+
+This is the first kubernetes cluster you've created so you're faced with a dilemma, do you create it manually using the [[https://aws.amazon.com/console][AWS Web Console]], or in an automated fashion with the [[https://aws.amazon.com/cli/][AWS Command Line Interface]]?
+
+ - [[
+
+**** TODO Amazon Web Services Console
+
+**** TODO Amazon Web Services Command Line Interface
 
 
 ** TODO Deploy a serverless application
@@ -334,6 +369,10 @@ Coming soon! For now you return to [[Deploy a kubernetes cluster]].
 
 ** TODO Teardown cloud resources
 SCHEDULED: <2020-05-18 Mon 11:55>
+
+To prevent unintended costs you know it's always important to ensure any cloud resources you have deployed that are not neccessary should be turned off or deleted.
+
+Let's tear down the cloud resources we deployed.
 
 #+NAME: Teardown kubernetes clusters
 #+begin_src tmate
