@@ -409,7 +409,9 @@ Coming soon! For now you return to [[Deploy a kubernetes cluster]].
 ** TODO Deploy an app on kubernetes
 SCHEDULED: <2020-05-18 Mon 11:30>
 
-Now that our image is in a cloud container registry, and we have a functional kubernetes cluster ready to go, let's create a gke deployment.
+Now that our image is in a cloud container registry, and we have a functional kubernetes cluster ready to go, let's create a gke deployment for our important pdf conversion application.
+
+Taking a look at the [[https://console.cloud.google.com/kubernetes/workload/deploy?cluster=company-cluster&location=australia-southeast1-a&project=cloud-native-bootcamp-277000][web console]] you can see an option available to create a deployment, so you decide to give that a go.  After selecting the pdf-app image and providing an application name you click *Deploy*.  After a short wait you can see a pod is up and running :)
 
 
 ** TODO Teardown cloud resources
@@ -425,6 +427,5 @@ Let's tear down the cloud resources we deployed.
 gcloud container clusters delete company-cluster --zone=australia-southeast1-a --quiet
 
 # Teardown amazon elastic kubernetes service cluster
-aws cloudformation delete-stack --stack-name EC2ContainerService-company-cluster
-aws ecs delete-cluster --cluster company-cluster
+aws eks --region us-east-1 delete-cluster --name company-cluster
 #+end_src

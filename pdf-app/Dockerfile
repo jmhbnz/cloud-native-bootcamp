@@ -1,5 +1,5 @@
-# Base standard python three image
-FROM python:3-alpine
+# Base standard python three image running alpine linux
+# TODO...
 
 # Install and configure packages
 RUN apk add libreoffice \
@@ -13,8 +13,8 @@ RUN apk add libreoffice \
 # Set a directory to work from
 WORKDIR /tmp
 
-# Copy the python package requirements in
-COPY requirements.txt /tmp/
+# Copy the python package requirements into the workdir
+# TODO...
 
 # Install python package requirements with pip
 RUN pip3 install --no-cache-dir -r /tmp/requirements.txt
@@ -23,7 +23,7 @@ RUN pip3 install --no-cache-dir -r /tmp/requirements.txt
 COPY convert /tmp/convert
 
 # Suggest a port to be exposed
-EXPOSE 3000
+# TODO...
 
 # Run the python web server
 CMD ["gunicorn", \
