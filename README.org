@@ -303,7 +303,6 @@ Now that you know what kubernetes is you know you have the choice of running the
 
  - [[Google Kubernetes Engine][1 - Google Kubernetes Engine]]
  - [[Amazon Elastic Kubernetes Service][2 - Amazon Elastic Kubernetes Service]]
- - [[3 - Both!?]]
 
 *** TODO Google Kubernetes Engine :decision:
 
@@ -323,6 +322,8 @@ Given this is the first time you've deployed a kubernetes cluster on Google Clou
 2. Once the clusters page has loaded you click *Create Cluster* and update the cluster name to ~company-cluster~ and specify he region as ~australia-southeast1-a~.  Keeping all other settings at their defaults you click *Create* at the bottom of the page.
 
 3. After waiting several minutes you can see the cluster has been created successfully. Clicking into the cluster you click on the *Nodes* tab to see that all three cluster nodes area ~Ready~ status.
+
+With a cluster up and running you're ready to [[Deploy an app on kubernetes]]!
 
 
 **** TODO Google Cloud SDK Command Line
@@ -346,18 +347,56 @@ kubectl get nodes
 kubectl get pods
 #+end_src
 
+With a cluster up and running you're ready to [[Deploy an app on kubernetes]]!
+
 
 *** TODO Amazon Elastic Kubernetes Service :decision:
 
-Taking a look at the [[https://aws.amazon.com/eks/][overview of Amazon Elastic Kubernetes Service]] you can see it is a fully managed kubernetes service with high availability and strong integration with a host of other AWS services.
+Taking a look at the [[https://aws.amazon.com/eks/][overview of Amazon Elastic Kubernetes Service] you can see it is a fully managed kubernetes service with high availability and strong integration with a host of other AWS services.
 
-This is the first kubernetes cluster you've created so you're faced with a dilemma, do you create it manually using the [[https://aws.amazon.com/console][AWS Web Console]], or in an automated fashion with the [[https://aws.amazon.com/cli/][AWS Command Line Interface]]?
+This is the first cluster you've created so you're faced with a dilemma, do you create it manually using the [[https://aws.amazon.com/console][AWS Web Console]], or in an automated fashion with the [[https://aws.amazon.com/cli/][AWS Command Line Interface]]?
 
- - [[
+ - [[Amazon Web Services Console][1 - Create the cluster manually with the Amazon Web Services Console]]
+ - [[Amazon Web Services Command Line Interface][2 - Create the cluster automatically with the Amazon Web Services CLI]]
 
 **** TODO Amazon Web Services Console
 
+Given this is the first time you've deployed an ecs cluster on AWS you decide to step through it manually in the [[https://aws.amazon.com/console][web console]]. 
+
+1. After loading up the console you search for *eks* and click into *Elastic Kubernetes Service* in the results.
+
+2. You enter the cluster name ~company-cluster~ in the textbox on the right hand side and click *Create Cluster*.
+
+3. You leave all settings at their default and click *Next* through to the confirmation screen then click *Create*.
+
+4. After a brief wait you can see that the cluster is running, clicking through to the *Compute* tab you're surprised to see no cluster nodes showing!?
+
+Faced with unexpected complexity you decide to [[Google Kubernetes Engine][take Google Kubernetes Engine for a spin]].
+
+
 **** TODO Amazon Web Services Command Line Interface
+
+You're keen to ensure anything you do today will be easy to recreate in future and be easily automated so you decide to create the cluster with the command line.
+
+Taking a look at the [[https://docs.aws.amazon.com/eks/latest/userguide/create-cluster.html][cluster creation docs]] you can see an example aws cli command so you decide to give that a go...
+
+#+NAME: Create and check eks cluster
+#+begin_src tmate
+# Create the cluster
+aws eks --region us-east-1 create-cluster \
+   --name company-cluster \
+   --role-arn arn:aws:iam::088596787314:role/EKSTest \
+   --resources-vpc-config \
+   subnetIds=subnet-cdb35492,subnet-a59e7f84
+
+# Create a kubeconfig entry for the cluster
+aws eks --region us-east-1 update-kubeconfig --name company-cluster
+
+# Check the cluster nodes
+kubectl get nodes
+#+end_src
+
+Faced with unexpected complexity you decide to [[Google Kubernetes Engine][take Google Kubernetes Engine for a spin]].
 
 
 ** TODO Deploy a serverless application
@@ -365,6 +404,12 @@ SCHEDULED: <2020-05-18 Mon 11:15>
 
 
 Coming soon! For now you return to [[Deploy a kubernetes cluster]].
+
+
+** TODO Deploy an app on kubernetes
+SCHEDULED: <2020-05-18 Mon 11:30>
+
+Now that our image is in a cloud container registry, and we have a functional kubernetes cluster ready to go, let's create a gke deployment.
 
 
 ** TODO Teardown cloud resources
@@ -378,4 +423,8 @@ Let's tear down the cloud resources we deployed.
 #+begin_src tmate
 # Teardown google kubernetes engine cluster
 gcloud container clusters delete company-cluster --zone=australia-southeast1-a --quiet
+
+# Teardown amazon elastic kubernetes service cluster
+aws cloudformation delete-stack --stack-name EC2ContainerService-company-cluster
+aws ecs delete-cluster --cluster company-cluster
 #+end_src
